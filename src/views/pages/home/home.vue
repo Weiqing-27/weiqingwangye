@@ -1,9 +1,9 @@
 <template>
-  <div>12415</div>
+  <div>12414</div>
 </template>
 
 <script setup>
 </script>
 
-<style>
+<style scoped>
 </style>

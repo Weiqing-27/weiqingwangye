@@ -1,0 +1,293 @@
+// cover some element-ui styles
+
+.el-breadcrumb__inner,
+.el-breadcrumb__inner a {
+    font-weight: 400 !important;
+}
+
+.el-upload {
+    input[type='file'] {
+        display: none !important;
+    }
+}
+
+.el-upload__input {
+    display: none;
+}
+
+.cell {
+    .el-tag {
+        margin-right: 0;
+    }
+}
+
+.small-padding {
+    .cell {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+.fixed-width {
+    .el-button--mini {
+        padding: 7px 10px;
+        width: 60px;
+    }
+
+    .el-button.is-text {
+        padding: 0;
+    }
+}
+
+.status-col {
+    .cell {
+        padding: 0 10px;
+        text-align: center;
+
+        .el-tag {
+            margin-right: 0;
+        }
+    }
+}
+
+// to fixed https://github.com/ElemeFE/element/issues/2461
+.el-dialog {
+    transform: none;
+    left: 0;
+    position: relative;
+    margin: 0 auto;
+}
+
+// refine element ui upload
+.upload-container {
+    .el-upload {
+        width: 100%;
+
+        .el-upload-dragger {
+            width: 100%;
+            height: 200px;
+        }
+    }
+}
+
+// dropdown
+.el-dropdown-menu {
+    a {
+        display: block;
+    }
+}
+
+// fix date-picker ui bug in filter-item
+.el-range-editor.el-input__inner {
+    display: inline-flex !important;
+}
+
+// to fix el-date-picker css style
+.el-range-separator {
+    box-sizing: content-box;
+}
+
+.el-menu--collapse > div > .el-submenu > .el-submenu__title .el-submenu__icon-arrow {
+    display: none;
+}
+
+.el-dropdown .el-dropdown-link {
+    color: var(--el-color-primary) !important;
+}
+
+// dialog
+.el-dialog:not(.is-fullscreen) {
+    margin-top: 6vh !important;
+
+    border-radius: 8px;
+    pointer-events: auto;
+    max-width: calc(100vw - 30px);
+}
+
+.el-dialog.scrollbar .el-dialog__body {
+    overflow: auto;
+    overflow-x: hidden;
+    max-height: 70vh;
+    padding: 10px 20px 0;
+}
+
+.el-dialog {
+    --el-dialog-padding-primary: 24px;
+}
+
+// form
+label,
+.el-form-item__label {
+    font-weight: 400 !important;
+    color: #333 !important;
+}
+
+// table
+.el-table {
+    .el-table__header-wrapper,
+    .el-table__fixed-header-wrapper {
+        th {
+            word-break: break-word;
+            background-color: #fafafa !important;
+            color: rgba(0, 0, 0, 0.85);
+            height: 40px !important;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 4px 4px 0px 0px;
+        }
+    }
+    .el-table__body-wrapper {
+        .el-button [class*='el-icon-'] + span {
+            margin-left: 1px;
+        }
+    }
+
+    .dangering-row {
+        --el-table-tr-bg-color: var(--el-color-danger-light-7);
+    }
+}
+
+.el-table .fixed-width .el-button--small {
+    padding-left: 0;
+    padding-right: 0;
+    width: inherit;
+}
+
+.el-table .el-dropdown-link {
+    cursor: pointer;
+    color: #409eff;
+    margin-left: 10px;
+}
+
+.el-table .el-dropdown,
+.el-icon-arrow-down {
+    font-size: 12px;
+}
+
+//pagination
+.pagination-container {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 10px;
+    margin-top: 15px;
+    padding: 10px 20px !important;
+}
+
+.el-pagination.is-background .btn-next,
+.el-pagination.is-background .btn-prev,
+.el-pagination.is-background .el-pager li {
+    background: #ffffff;
+    border-radius: 2px;
+    border: 1px solid #d9d9d9;
+}
+.el-pagination.is-background .btn-next.is-active,
+.el-pagination.is-background .btn-prev.is-active,
+.el-pagination.is-background .el-pager li.is-active {
+    border: 1px solid var(--el-color-primary);
+}
+
+.el-pagination.is-background .btn-next.is-disabled,
+.el-pagination.is-background .btn-next:disabled,
+.el-pagination.is-background .btn-prev.is-disabled,
+.el-pagination.is-background .btn-prev:disabled,
+.el-pagination.is-background .el-pager li.is-disabled,
+.el-pagination.is-background .el-pager li:disabled {
+    background-color: transparent;
+}
+
+@media (max-width: 768px) {
+    .pagination-container .el-pagination > .el-pagination__jump {
+        display: none !important;
+    }
+    .pagination-container .el-pagination > .el-pagination__sizes {
+        display: none !important;
+    }
+}
+
+/* tree border */
+.tree-border {
+    margin-top: 5px;
+    border: 1px solid #e5e6e7;
+    background: #ffffff none;
+    border-radius: 4px;
+    width: 100%;
+}
+
+//el_descriptions
+.el-descriptions__header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 22px;
+}
+.el-timeline {
+    padding-left: 30px;
+}
+
+.el-timeline-item__timestamp.is-top {
+    margin-bottom: 11px;
+    padding-top: 1px;
+    margin-left: -8px;
+    font-size: 14px;
+}
+//弹窗分割线
+.el-dialog:not(.is-fullscreen) {
+    margin-top: 6vh !important;
+    border-radius: 8px;
+    pointer-events: auto;
+    padding: 0 0 24px 0; //去掉自带的内边距
+    max-width: calc(100vw - 30px);
+}
+.el-dialog__header {
+    border-bottom: 1px solid #dddddd;
+    padding: 24px 32px;
+    margin-bottom: 24px;
+}
+.el-dialog__headerbtn{
+    top: 14px;
+    right: 10px;
+}
+.el-dialog__body {
+    padding: 0 100px 0 64px;
+}
+.dialog-body-np .el-dialog__body{
+    padding: 0 !important;
+}
+.el-dialog__footer {
+    padding: 40px 64px 0 0;
+}
+//弹窗左边内的左右边距
+.el-descriptions__body .el-descriptions__table.is-bordered .el-descriptions__cell {
+    border: none;
+    padding: 6px 0 6px 32px;
+}
+//时间位置
+.el-timeline-item__timestamp.is-top {
+    padding-top: 1px;
+    margin-left: -8px;
+    font-size: 14px;
+}
+//问题描述输入框
+.el-textarea {
+    width: 100%;
+}
+//附件上传框
+// .upload-file-uploader,.el-upload-dragger{
+//     width:552px !important;
+// }
+//数据类弹窗左边内容左右边距相关
+.el-descriptions__body .el-descriptions__table.is-bordered .el-descriptions__cell {
+    padding: 8px 0 8px 32px !important;
+}
+
+.el-descriptions__label.el-descriptions__cell.is-bordered-label {
+    background: none;
+    width: 170px !important;
+}
+//角色登录弹窗鼠标移动背景色
+.el-dropdown__popper {
+      --el-dropdown-menu-box-shadow: var(--el-box-shadow-light);
+      --el-dropdown-menuItem-hover-fill: #F9F9F9 !important;//鼠标移动背景色
+      --el-dropdown-menuItem-hover-color: none;  //字体颜色
+      --el-dropdown-menu-index: 10;
+}

@@ -1,0 +1,86 @@
+// 默认菜单主题风格
+$base-menu-color: #bfcbd9;
+$base-menu-color-active: #f4f4f5;
+$base-menu-background: #fff;
+$base-nav-background: #ffffff;
+$base-logo-title-color: #ffffff;
+$base-nav-title-color: #001529;
+
+$base-menu-light-color: rgba(0, 0, 0, 0.7);
+$base-menu-light-background: #ffffff;
+$base-nav-light-background: #ffffff;
+$base-logo-light-title-color: #001529;
+$base-nav-light-title-color: #001529;
+
+$base-sub-menu-background: #1f2d3d;
+$base-sub-menu-hover: #001528;
+// end
+
+// 自定义暗色菜单风格
+/**
+$base-menu-color: hsla(0, 0%, 100%, 0.65);
+$base-menu-color-active: #fff;
+$base-menu-background: #001529;
+$base-nav-background: #ffffff;
+$base-logo-title-color: #001529;
+
+$base-menu-light-color: rgba(0, 0, 0, 0.7);
+$base-menu-light-background: #ffffff;
+$base-nav-light-background: #ffffff;
+$base-logo-light-title-color: #001529;
+
+$base-sub-menu-background: #000c17;
+$base-sub-menu-hover: #001528;
+*/
+// end
+
+$--color-primary: #1677ff;
+$--color-success: #71d73c;
+$--color-warning: #ff9c16;
+$--color-danger: #ff8385;
+$--color-info: #909399;
+
+$base-sidebar-width: 200px;
+$base-sidebar-collapse-width: 64px;
+$base-navbar-height: 48px;
+
+// the :export directive is the magic sauce for webpack
+// https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
+:export {
+    menuColor: $base-menu-color;
+    menuLightColor: $base-menu-light-color;
+    menuColorActive: $base-menu-color-active;
+    menuBackground: $base-menu-background;
+    menuLightBackground: $base-menu-light-background;
+    subMenuBackground: $base-sub-menu-background;
+    subMenuHover: $base-sub-menu-hover;
+    sideBarWidth: $base-sidebar-width;
+    logoTitleColor: $base-logo-title-color;
+    logoLightTitleColor: $base-logo-light-title-color;
+    primaryColor: $--color-primary;
+    successColor: $--color-success;
+    dangerColor: $--color-danger;
+    infoColor: $--color-info;
+    warningColor: $--color-warning;
+}
+
+:root {
+    --el-color-primary: #{$--color-primary};
+    --el-color-success: #{$--color-success};
+    --el-color-warning: #{$--color-warning};
+    --el-color-danger: #{$--color-danger};
+    --side-bar-width: #{$base-sidebar-width};
+    --side-bar-collapse-width: #{$base-sidebar-collapse-width};
+    --menu-background: #{$base-menu-background};
+    --nav-bar-height: #{$base-navbar-height};
+    --nav-background: #{$base-nav-background};
+    --menu-light-background: #{$base-menu-light-background};
+    --nav-light-background: #{$base-nav-light-background};
+    --logo-title-color: #{$base-logo-title-color};
+    --logo-light-title-color: #{$base-logo-light-title-color};
+    --nav-title-color: #{$base-nav-title-color};
+    --nav-light-title-color: #{$base-nav-light-title-color};
+    --el-border-radius-base: 6px;
+    //Table
+    --el-border-color-lighter: #e8e8e8;
+}
