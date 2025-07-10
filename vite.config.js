@@ -1,6 +1,7 @@
 import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
 
 // https://vite.dev/config/
 export default defineConfig(async () => {
@@ -14,7 +15,7 @@ export default defineConfig(async () => {
   }
 
   return {
-    base: '/', // 设置项目根路径
+    base: './', // 使用相对路径适应GitHub Pages
     plugins: [
       vue(),
       // 只在开发环境中且成功导入插件时才加载Vue DevTools
