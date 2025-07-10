@@ -8,8 +8,9 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 export default defineConfig({
   plugins: [
     vue(),
-    vueDevTools(),
-  ],
+    // 只在开发环境中加载Vue DevTools插件
+    process.env.NODE_ENV === 'development' ? vueDevTools() : null,
+  ].filter(Boolean), // 过滤掉null值
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
