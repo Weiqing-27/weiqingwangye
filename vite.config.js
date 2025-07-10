@@ -13,16 +13,16 @@ export default defineConfig(async () => {
   } catch (e) {
     console.warn('vite-plugin-vue-devtools import error:', e.message);
   }
-  
+
   return {
-  plugins: [
-    vue(),
-    // 只在开发环境中且成功导入插件时才加载Vue DevTools
-    process.env.NODE_ENV === 'development' && vueDevTools ? vueDevTools() : null,
-  ].filter(Boolean), // 过滤掉null值
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    },
-  }
-})
+    plugins: [
+      vue(),
+      // 只在开发环境中且成功导入插件时才加载Vue DevTools
+      process.env.NODE_ENV === 'development' && vueDevTools ? vueDevTools() : null,
+    ].filter(Boolean), // 过滤掉null值
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url))
+      },
+    }
+  })
