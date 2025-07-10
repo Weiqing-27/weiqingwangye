@@ -1,0 +1,250 @@
+// 响应式布局工具类
+
+// 定义常用的断点变量
+$breakpoints: (
+  xs: 320px,  // 超小屏幕手机
+  sm: 576px,  // 小屏幕手机
+  md: 768px,  // 平板
+  lg: 992px,  // 小型桌面显示器
+  xl: 1200px, // 大型桌面显示器
+  xxl: 1600px // 超大型桌面显示器
+);
+
+// 使用媒体查询生成响应式工具类
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media screen and (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+// 显示隐藏工具类
+.hidden-xs-only {
+  @media screen and (max-width: map-get($breakpoints, sm) - 1) {
+    display: none !important;
+  }
+}
+
+.hidden-sm-only {
+  @media screen and (min-width: map-get($breakpoints, sm)) and (max-width: map-get($breakpoints, md) - 1) {
+    display: none !important;
+  }
+}
+
+.hidden-sm-and-down {
+  @media screen and (max-width: map-get($breakpoints, md) - 1) {
+    display: none !important;
+  }
+}
+
+.hidden-sm-and-up {
+  @media screen and (min-width: map-get($breakpoints, sm)) {
+    display: none !important;
+  }
+}
+
+.hidden-md-only {
+  @media screen and (min-width: map-get($breakpoints, md)) and (max-width: map-get($breakpoints, lg) - 1) {
+    display: none !important;
+  }
+}
+
+.hidden-md-and-down {
+  @media screen and (max-width: map-get($breakpoints, lg) - 1) {
+    display: none !important;
+  }
+}
+
+.hidden-md-and-up {
+  @media screen and (min-width: map-get($breakpoints, md)) {
+    display: none !important;
+  }
+}
+
+.hidden-lg-only {
+  @media screen and (min-width: map-get($breakpoints, lg)) and (max-width: map-get($breakpoints, xl) - 1) {
+    display: none !important;
+  }
+}
+
+.hidden-lg-and-down {
+  @media screen and (max-width: map-get($breakpoints, xl) - 1) {
+    display: none !important;
+  }
+}
+
+.hidden-lg-and-up {
+  @media screen and (min-width: map-get($breakpoints, lg)) {
+    display: none !important;
+  }
+}
+
+.hidden-xl-only {
+  @media screen and (min-width: map-get($breakpoints, xl)) and (max-width: map-get($breakpoints, xxl) - 1) {
+    display: none !important;
+  }
+}
+
+.hidden-xl-and-down {
+  @media screen and (max-width: map-get($breakpoints, xxl) - 1) {
+    display: none !important;
+  }
+}
+
+.hidden-xl-and-up {
+  @media screen and (min-width: map-get($breakpoints, xl)) {
+    display: none !important;
+  }
+}
+
+// 弹性布局工具类
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+// 响应式容器
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+
+  @include respond-to(sm) {
+    max-width: 540px;
+  }
+
+  @include respond-to(md) {
+    max-width: 720px;
+  }
+
+  @include respond-to(lg) {
+    max-width: 960px;
+  }
+
+  @include respond-to(xl) {
+    max-width: 1140px;
+  }
+
+  @include respond-to(xxl) {
+    max-width: 1320px;
+  }
+}
+
+// 流体容器（总是100%宽度）
+.container-fluid {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+// 响应式网格系统
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+// 基本列定义
+.col {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+// 响应式列类生成
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    flex: 0 0 percentage($i / 12);
+    max-width: percentage($i / 12);
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  @each $breakpoint, $width in $breakpoints {
+    @include respond-to($breakpoint) {
+      .col-#{$breakpoint}-#{$i} {
+        flex: 0 0 percentage($i / 12);
+        max-width: percentage($i / 12);
+        padding-right: 15px;
+        padding-left: 15px;
+      }
+    }
+  }
+}
+
+// 常用间距工具类
+@each $breakpoint, $width in $breakpoints {
+  @include respond-to($breakpoint) {
+    @for $i from 0 through 5 {
+      $space: $i * 0.25rem;
+
+      .m-#{$breakpoint}-#{$i} { margin: $space !important; }
+      .mt-#{$breakpoint}-#{$i} { margin-top: $space !important; }
+      .mr-#{$breakpoint}-#{$i} { margin-right: $space !important; }
+      .mb-#{$breakpoint}-#{$i} { margin-bottom: $space !important; }
+      .ml-#{$breakpoint}-#{$i} { margin-left: $space !important; }
+
+      .p-#{$breakpoint}-#{$i} { padding: $space !important; }
+      .pt-#{$breakpoint}-#{$i} { padding-top: $space !important; }
+      .pr-#{$breakpoint}-#{$i} { padding-right: $space !important; }
+      .pb-#{$breakpoint}-#{$i} { padding-bottom: $space !important; }
+      .pl-#{$breakpoint}-#{$i} { padding-left: $space !important; }
+    }
+  }
+}
+
+// 响应式文本对齐
+@each $breakpoint, $width in $breakpoints {
+  @include respond-to($breakpoint) {
+    .text-#{$breakpoint}-left { text-align: left !important; }
+    .text-#{$breakpoint}-center { text-align: center !important; }
+    .text-#{$breakpoint}-right { text-align: right !important; }
+  }
+}
+
+// 响应式字体大小
+.responsive-text {
+  font-size: 16px; // 默认字体大小
+
+  @media screen and (max-width: map-get($breakpoints, sm)) {
+    font-size: 14px;
+  }
+
+  @media screen and (min-width: map-get($breakpoints, xl)) {
+    font-size: 18px;
+  }
+}
+
+// 视口相对单位类
+.vh-100 {
+  height: 100vh;
+}
+
+.vw-100 {
+  width: 100vw;
+}
+
+// 设置rem基准值（可选）
+html {
+  font-size: 16px;
+
+  @media screen and (max-width: map-get($breakpoints, md)) {
+    font-size: 14px; // 在小屏幕上缩小基准字体大小
+  }
+}
