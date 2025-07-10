@@ -3,12 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "engines": {
-    "node": ">=20.x"
-  },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "chmod +x ./node_modules/.bin/vite && vite build",
     "preview": "vite preview",
     "lint": "eslint . --fix",
     "format": "prettier --write src/"
@@ -30,5 +27,8 @@
     "sass": "^1.89.2",
     "vite": "^7.0.0",
     "vite-plugin-vue-devtools": "^7.7.7"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }
