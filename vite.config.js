@@ -25,4 +25,5 @@ export default defineConfig(async () => {
         '@': fileURLToPath(new URL('./src', import.meta.url))
       },
     }
-  })
+  };
+})
