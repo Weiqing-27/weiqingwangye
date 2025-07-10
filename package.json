@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "rimraf dist node_modules package-lock.json && npm cache clean --force && npm install",
-    "build": "chmod +x ./node_modules/.bin/vite && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --fix",
     "format": "prettier --write src/"
@@ -25,7 +24,6 @@
     "eslint-plugin-vue": "~10.2.0",
     "globals": "^16.2.0",
     "prettier": "3.5.3",
-    "rimraf": "^6.0.1",
     "rollup": "^4.9.0",
     "sass": "^1.89.2",
     "vite": "^5.0.0",
