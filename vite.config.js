@@ -22,8 +22,12 @@ export default defineConfig(async () => {
     ].filter(Boolean), // 过滤掉null值
     resolve: {
       alias: {
-        '@': fileURLToPath(new URL('./src', import.meta.url))
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
+        'vue': 'vue/dist/vue.esm-bundler.js'
       },
+    },
+    optimizeDeps: {
+      include: ['vue']
     }
   };
 })
