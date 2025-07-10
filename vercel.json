@@ -5,15 +5,23 @@
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
-        "installCommand": "npm install --no-audit --no-fund --no-optional",
-        "buildCommand": "npm run build"
+        "installCommand": "npm install --no-audit --no-fund",
+        "buildCommand": "npm run build",
+        "distDir": "dist"
       }
     }
   ],
   "routes": [
     {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ]
+  ],
+  "github": {
+    "silent": true
+  }
 }
