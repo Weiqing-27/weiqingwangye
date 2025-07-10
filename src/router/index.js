@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
 
 const routes = [
   {
@@ -25,7 +25,8 @@ const routes = [
 
 // 创建路由实例
 const router = createRouter({
-  history: createWebHistory(),
+  // 使用hash模式解决GitHub Pages路由问题
+  history: createWebHashHistory(),
   routes,
   // 添加路由滚动行为
   scrollBehavior(to, from, savedPosition) {
