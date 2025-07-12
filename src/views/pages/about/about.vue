@@ -4,11 +4,13 @@
     <div class="content">
       <div class="info-section">
         <h2>个人简介</h2>
-        <p>正在成长的前端开发实习生</p>
+         <div>魏庆</div>
+        <div>男/23岁</div>
+        <div>正在成长的前端开发实习生</div>
       </div>
 
       <div class="info-section">
-        <h2>学过用过的技能</h2>
+        <h2>学过用过的技术栈</h2>
         <div class="skills">
           <el-tag
             v-for="(skill, index) in skills"
@@ -20,7 +22,6 @@
           </el-tag>
         </div>
       </div>
-
       <div class="info-section">
         <h2>教育背景</h2>
         <p>计算机科学与技术 - 浙江中医药大学滨江学院</p>
@@ -41,15 +42,19 @@ import { ref } from 'vue'
 const skills = ref([
   'Vue.js',
   'JavaScript',
+  'TypeScript',
   'HTML/CSS',
   'Sass/SCSS',
   'Element Plus',
   'echarts',
+  'uniApp',
   'vant',
   'z-paging',
   'Webpack',
   'Node.js',
   'express',
+  'sqlserver2008',
+  'Supabase',
   'vercel',
   'Git',
   '响应式设计',
